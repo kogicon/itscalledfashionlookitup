@@ -1,6 +1,7 @@
 import random
 import math
 import colorsys
+from colutils import get_random_color, make_color_hsl
 
 pattern_list = {
 	'complementary': [[0,0,0], [180,0,0]],
@@ -44,22 +45,3 @@ def get_colors():
 	print get_random_color();
 
 	return color_list;
-
-def get_random_color():
-	hue_max = 360;
-
-	sat_max = 100;
-	light_max = 100;
-
-	sat_base = 0;
-	light_base = 0;
-
-	sat = (random.random() * (sat_max - sat_base*2)) + sat_base;
-	light = (random.random() * (light_max - light_base*2)) + light_base;
-	hue = (random.random() * hue_max);
-
-	return make_color_hsl(hue, sat, light);
-
-
-def make_color_hsl(h, s, l):
-	return "hsl(" + str(h) + "," + str(s) + "%," + str(l) + "%)";
