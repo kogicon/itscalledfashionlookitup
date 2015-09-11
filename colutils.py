@@ -18,6 +18,9 @@ class Color:
         self.saturation = s
         self.lightness = l
 
+    def __str_(self):
+        return make_color_hsl(self.hue, self.saturation, self.lightness)
+
 
 def get_random_color():
     hue_max = 360

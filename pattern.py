@@ -1,8 +1,16 @@
+from random import random
+from colutils import get_random_color
+
+
 class Motif:
     """
     Represents a "motif", a repeating element that is part of a pattern. Has a color, size, and parameters for how it
     tiles / repeats over an area.
     """
+
+    MAX_TILE_WIDTH = 100
+    MIN_TILE_WIDTH = 100
+
     def __init__(self, color="#FFFFFF", width=0, height=0, repeat_x=1, repeat_y=1, space_x=0, space_y=0):
         # the color of the motif
         self.color = color
@@ -21,10 +29,16 @@ class Motif:
 
     @staticmethod
     def random_motif():
-        return Motif()
+        color = str(get_random_color())
+        width = int(random() * (Motif.MAX_TILE_WIDTH + 1))
+        height = int(random() * (Motif.MAX_TILE_WIDTH + 1))
+        return Motif(color=color, width=width, height=height)
 
 
 class Pattern:
+
+    MAX_MOTIFS = 10
+
     """
     Represents a "pattern", containing a series of motifs and a background color.
     """
@@ -36,4 +50,7 @@ class Pattern:
 
     @staticmethod
     def random_pattern():
-        return Pattern()
+        bgcol = str(get_random_color())
+        num_motifs = int(random()* (Pattern.MAX_MOTIFS+1))
+        motifs = [Motif.random_motif() for i in range(num_motifs)]
+        return Pattern(bgcol=bgcol, motifs=motifs)
