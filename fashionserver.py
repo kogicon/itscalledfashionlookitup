@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, send_from_directory
+import getcolor as gc
 
 app = Flask(__name__)
 
@@ -12,8 +13,8 @@ def serve_ui():
 
 @app.route('/get-colors/', methods=['GET'])
 def get_colors():
-    # do stuff
-    return jsonify({'colors': ["#CCCCAA", "#AACCCC", "#CCAACC", "#CCACAC"]}), 200
+    colors = gc.get_colors();
+    return jsonify({'colors': colors}), 200
 
 
 # @app.route('/get-pattern/', methods=['GET'])
