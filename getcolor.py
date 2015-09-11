@@ -11,8 +11,10 @@ pattern_list = {
 
 def get_colors():
 	hue_max = 360;
-	saturation = 50
-	lightness = 50
+	sat_max = 100;
+	light_max = 100
+	saturation = (random.random() * sat_max);
+	lightness = (random.random() * light_max);
 
 	color_list = [];
 
