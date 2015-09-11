@@ -15,5 +15,11 @@ def get_colors():
     # do stuff
     return jsonify({'colors': ["#CCCCAA", "#AACCCC", "#CCAACC", "#CCACAC"]}), 200
 
+
+# @app.route('/get-pattern/', methods=['GET'])
+# def get_pattern():
+#
+
+
 if __name__ == '__main__':
     app.run(debug=True)
