@@ -14,32 +14,32 @@ pattern_list = {
 
 
 def get_colors():
-	hue_max = 360;
-	sat_max = 100;
-	light_max = 100;
+	hue_max = 360
+	sat_max = 100
+	light_max = 100
 
-	sat_ceil = 90;
-	light_ceil = 80;
+	sat_ceil = 90
+	light_ceil = 80
 
-	sat_floor = 20;
-	light_floor = 20;
+	sat_floor = 20
+	light_floor = 20
 
-	sat = (random.random() * (sat_ceil - sat_floor)) + sat_floor;
-	light = (random.random() * (light_ceil - light_floor)) + light_floor;
+	sat = (random.random() * (sat_ceil - sat_floor)) + sat_floor
+	light = (random.random() * (light_ceil - light_floor)) + light_floor
 
-	color_list = [];
+	color_list = []
 
-	hue = (random.random() * hue_max);
+	hue = (random.random() * hue_max)
 	
-	ind = int(random.random() * len(pattern_list));
-	pattern_name = pattern_list.keys()[ind];
-	pattern = pattern_list[pattern_name];
+	ind = int(random.random() * len(pattern_list))
+	pattern_name = pattern_list.keys()[ind]
+	pattern = pattern_list[pattern_name]
 
 	for p in pattern:
-		color_hue 	= (hue + p[0]) % hue_max;
-		color_sat 	= (sat + p[1]) % sat_max;
-		color_light = (light + p[2]) % light_max;
-		color_list.append(make_color_hsl(color_hue, color_sat, color_light));
+		color_hue 	= (hue + p[0]) % hue_max
+		color_sat 	= (sat + p[1]) % sat_max
+		color_light = (light + p[2]) % light_max
+		color_list.append(make_color_hsl(color_hue, color_sat, color_light))
 
 	print color_list;
 	print get_random_color();

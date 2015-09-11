@@ -9,7 +9,7 @@ class Motif:
     """
 
     MAX_TILE_WIDTH = 100
-    MIN_TILE_WIDTH = 100
+    MIN_TILE_HEIGHT = 100
 
     def __init__(self, color="#FFFFFF", width=0, height=0, repeat_x=1, repeat_y=1, space_x=0, space_y=0):
         # the color of the motif
@@ -31,8 +31,13 @@ class Motif:
     def random_motif():
         color = str(get_random_color())
         width = int(random() * (Motif.MAX_TILE_WIDTH + 1))
-        height = int(random() * (Motif.MAX_TILE_WIDTH + 1))
-        return Motif(color=color, width=width, height=height)
+        height = int(random() * (Motif.MIN_TILE_HEIGHT + 1))
+        repeat_x = int(random() * (Motif.MAX_TILE_WIDTH + 1))
+        repeat_y = int(random() * (Motif.MIN_TILE_HEIGHT + 1))
+        space_x = int(random() * (Motif.MAX_TILE_WIDTH + 1))
+        space_y = int(random() * (Motif.MIN_TILE_HEIGHT + 1))
+        return Motif(color=color, width=width, height=height, repeat_x=repeat_x, repeat_y=repeat_y, space_x=space_x,
+                     space_y=space_y)
 
 
 class Pattern:
@@ -52,5 +57,5 @@ class Pattern:
     def random_pattern():
         bgcol = str(get_random_color())
         num_motifs = int(random()* (Pattern.MAX_MOTIFS+1))
-        motifs = [Motif.random_motif() for i in range(num_motifs)]
+        motifs = [Motif.random_motif() in range(num_motifs)]
         return Pattern(bgcol=bgcol, motifs=motifs)
