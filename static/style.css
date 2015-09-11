@@ -2,10 +2,16 @@ body {
 	font-family: "Bauhaus 93"  "sans-serif";
 	text-align: center;
 }
-div.colpane {
+
+div#colors-container {
 	border: solid 10px #888888;
+	margin:auto;
+	width: 90%;
+}
+
+div.colpane {
 	display: block;
 	height:20%;
 	margin:auto;
-	width: 90%;
+	width: 100%;
 }
