@@ -5,23 +5,27 @@ from colutils import get_random_color, make_color_hsl
 
 pattern_list = {
 	'complementary': [[0,0,0], [180,0,0]],
-	'split complementary': [[0,0,0], [160,0,0], [200,0,0]],
+	'split complementary': [[0,0,0], [150,0,0], [210,0,0]],
+	'analog': [[330,0,0], [0,0,0], [30,0,0]],
+	'double split': [[330,0,0], [30,0,0], [150,0,0], [210,0,0]],
 	'triadic': [[0,0,0], [120,0,0], [240,0,0]],
-	'monochrome': [[0,0,0], [0,0,25], [0,0,75]]
+	'monochrome': [[0,0,0], [0,0,25], [0,0,50], [0,0,75]]
 }
 
 
 def get_colors():
 	hue_max = 360;
-
 	sat_max = 100;
 	light_max = 100;
 
-	sat_base = 20;
-	light_base = 20;
+	sat_ceil = 90;
+	light_ceil = 80;
 
-	sat = (random.random() * (sat_max - sat_base*2)) + sat_base;
-	light = (random.random() * (light_max - light_base*2)) + light_base;
+	sat_floor = 20;
+	light_floor = 20;
+
+	sat = (random.random() * (sat_ceil - sat_floor)) + sat_floor;
+	light = (random.random() * (light_ceil - light_floor)) + light_floor;
 
 	color_list = [];
 
