@@ -3,6 +3,18 @@ body {
 	text-align: center;
 }
 
+button {
+    font-family: inherit;
+    background-color: #FFFFFF;
+    border: solid 1px #000000;
+    outline: none;
+    font-size: 1em;
+}
+
+button:hover {
+	border-width: 2px;
+}
+
 div#colors-container {
 	border: solid 10px #888888;
 	margin:auto;
