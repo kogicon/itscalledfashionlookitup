@@ -42,6 +42,5 @@ def get_colors():
 		color_list.append(make_color_hsl(color_hue, color_sat, color_light));
 
 	print color_list;
-	print get_random_color();
 
 	return color_list;
