@@ -6,9 +6,10 @@ $( document ).ready(function() {
 function getColors(){
     $.get("/get-colors", function(data, status){
         var cols = data.colors;
-        var divs = $('div.colpane')
-        for(var i=0; i < cols.length && i < divs.length; i++){
-			$(divs[i]).css('background-color', cols[i]);
+        var colorContainer = $('div#colors-container');
+        $(colorContainer).empty();
+        for(var i=0; i < cols.length; i++){
+        	$(colorContainer).append('<div class="colpane" style="background-color:'+cols[i]+'"></div><br>');
         }
     });
 }
