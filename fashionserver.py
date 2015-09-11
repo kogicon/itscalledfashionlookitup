@@ -10,5 +10,10 @@ def serve_ui():
     return app.send_static_file('index.html')
 
 
+@app.route('/get-colors/', methods=['GET'])
+def get_colors():
+    # do stuff
+    return jsonify({'colors': ["#CCCCAA", "#AACCCC", "#CCAACC", "#CCACAC"]}), 200
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
