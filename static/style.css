@@ -1,5 +1,5 @@
 body {
-	font-family: "Bauhaus 93"  "sans-serif";
+	font-family: "Bauhaus 93", Georgia,  "sans-serif";
 	text-align: center;
 }
 
@@ -19,11 +19,19 @@ div#colors-container {
 	border: solid 10px #888888;
 	margin:auto;
 	width: 90%;
+	max-width: 900px;
 }
 
 div.colpane {
 	display: block;
-	height:20%;
 	margin:auto;
+	padding-top: 9%;
+	padding-bottom: 9%;
 	width: 100%;
+	color:rgba(0,0,0,0);
+	text-shadow: 0 1px 3px rgba(0,0,0,0);
+}
+div.colpane:hover {
+	color:#FFF;
+	text-shadow: 0 1px 3px rgba(50,50,50,1);
 }

@@ -41,12 +41,11 @@ def get_colors():
 		color_light = (light + p[2]) % light_max
 
 		hsl_list = [color_hue,color_sat,color_light]
-		rgb_list = colorsys.hsv_to_rgb(hsl_list[0]/hue_max, hsl_list[1]/sat_max, hsl_list[2]/light_max);
+		rgb_list = colorsys.hls_to_rgb(hsl_list[0]/hue_max, hsl_list[2]/light_max, hsl_list[1]/sat_max);
 		rgb_max = 255
 		rgb_list = map(lambda x: int(round(x*rgb_max)), rgb_list)
 		hsl_list = [round(hsl_list[0]) % hue_max, round(hsl_list[1]), round(hsl_list[2])]
-		rgb_str = '#' + reduce(lambda x,y: str(x) + format(y, '02x')
-, rgb_list)
+		rgb_str = '#' + reduce(lambda x,y: str(x) + format(y, '02x'), rgb_list, '')
 		rgb_str2 = 'rgb(' + str(rgb_list[0]) + ',' + str(rgb_list[1]) + ',' + str(rgb_list[2]) + ');'
 		print rgb_str2
 
@@ -54,7 +53,8 @@ def get_colors():
 		print hsl_list
 		print rgb_list
 
-		color_list.append([make_color_hsl(color_hue, color_sat, color_light),])
+		color_list.append([make_color_hsl(color_hue, color_sat, color_light), make_color_hsl(round(color_hue), round(color_sat), round(color_light)) +
+                                   ' | ' + rgb_str2 + ' | ' + rgb_str])
 
 	print color_list;
 
