@@ -1,10 +1,13 @@
 import random
 import math
 import colorsys
+import numpy as np
 from colutils import get_random_color, make_color_hsl
 
 pattern_list = {
 	'complementary': [[0,0,0], [180,0,0]],
+        'complementary /w black': [[0,0,0], ['STATIC',0,0,10], [180,0,0]],
+        'complementary /w white': [[0,0,0], ['STATIC',0,0,99], [180,0,0]],
 	'split complementary': [[0,0,0], [150,0,0], [210,0,0]],
 	'analog': [[330,0,0], [0,0,0], [30,0,0]],
 	'double split': [[330,0,0], [30,0,0], [150,0,0], [210,0,0]],
@@ -36,10 +39,15 @@ def get_colors():
 	pattern = pattern_list[pattern_name]
 
 	for p in pattern:
-		color_hue 	= (hue + p[0]) % hue_max
-		color_sat 	= (sat + p[1]) % sat_max
-		color_light = (light + p[2]) % light_max
-
+                if p[0] == 'STATIC':
+                        color_hue = (p[1]) % hue_max
+                        color_sat = (p[2]) % sat_max
+                        color_light = (p[3]) % light_max
+                else:
+                        color_hue 	= (hue + p[0]) % hue_max
+                        color_sat 	= (sat + p[1]) % sat_max
+                        color_light = (light + p[2]) % light_max
+                
 		hsl_list = [color_hue,color_sat,color_light]
 		rgb_list = colorsys.hls_to_rgb(hsl_list[0]/hue_max, hsl_list[2]/light_max, hsl_list[1]/sat_max);
 		rgb_max = 255
@@ -57,5 +65,7 @@ def get_colors():
                                    ' | ' + rgb_str2 + ' | ' + rgb_str])
 
 	print color_list;
+	
+	np.random.shuffle(color_list)
 
 	return color_list;
