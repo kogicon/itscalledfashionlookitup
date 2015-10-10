@@ -17,7 +17,18 @@ cont2 = {'type':'container', 'orientation':'H', 'weight':1, 'children':[nodeC, n
 tree1 = {'type':'container', 'orientation':'V', 'weight':1, 'children':[cont1, cont2]}
 
 
-element_list = [{'weight':2, 'data':'Hello world!'},{'weight':4, 'data':'I am the master commander!'},{'weight':1, 'data':'Bruh'},{'weight':2, 'data':'Jenkins, you\'re a jerk'},{'weight':1, 'data':'Beep boop'}]
+element_list = [{'weight':2, 'data':'Hello world!'},
+                {'weight':4, 'data':'I am the master commander!'},
+                {'weight':1, 'data':'Bruh'},
+                {'weight':2, 'data':'Jenkins, you\'re a jerk'},
+                {'weight':1, 'data':'Beep boop'},
+                {'weight':1, 'data':'Making up words'},
+                {'weight':1, 'data':'Fa la la la la'},
+                {'weight':1, 'data':'gcd is probably 1 I mean lets be real'},
+                {'weight':1, 'data':'3.1415926535897932384626433...'},
+                {'weight':1, 'data':'I am a blob'},
+                {'weight':1, 'data':'What is space?'},
+                {'weight':1, 'data':'Who you?'}]
 
 def randremove(l, n):
         new = []
@@ -30,7 +41,15 @@ def randremove(l, n):
                 l = l[:r] + l[r+1:]
         return new, l
 
-
+def divide(lst, min_size, split_size):
+    it = iter(lst)
+    from itertools import islice
+    size = len(lst)
+    for i in range(split_size - 1,0,-1):
+        s = randint(min_size, size -  min_size * i)
+        yield list(islice(it,0,s))
+        size -= s
+    yield list(it)
 
 def gen_tree(el, depth):
         tree = {}
@@ -43,6 +62,7 @@ def gen_tree(el, depth):
                 return tree
         
         box_count = randrange(2, ceil(sqrt(len(el)))+1)
+        '''
         boxes = []
         for b in range(box_count):
                 box, el = randremove(el, 1)
@@ -53,7 +73,10 @@ def gen_tree(el, depth):
                         r = len(el)
                 boxadd, el = randremove(el, r)
                 boxes[b] = boxes[b] + boxadd
-        print boxes
+        '''
+        boxes = list(divide(el, 1, box_count))
+        
+        print len(boxes)
 
         tree['type'] = 'container'
         if depth % 2 == 0:
