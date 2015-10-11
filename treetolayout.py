@@ -77,8 +77,8 @@ def gen_tree(el, depth):
 
 
 def tree_to_layout(tree):
-        layout  ='<div class="content-screen">\n'
-        layout  = tree_to_layout_help(layout, tree)
+        layout ='<div class="content-screen">\n'
+        layout = tree_to_layout_help(layout, tree)
         layout += '</div>\n'
         return layout
 
