@@ -17,6 +17,7 @@ button:hover {
 
 div#colors-container {
 	border: solid 10px #888888;
+	font-family: monospace;
 	margin:auto;
 	width: 90%;
 	max-width: 900px;
