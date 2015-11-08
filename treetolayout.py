@@ -46,18 +46,7 @@ def gen_tree(el, depth):
             return tree
 
     box_count = randrange(2, ceil(sqrt(len(el)))+1)
-    '''
-    boxes = []
-    for b in range(box_count):
-            box, el = randremove(el, 1)
-            boxes.append(box)
-    for b in range(box_count):
-            r = randrange(len(el)+1)
-            if b+1 == box_count:
-                    r = len(el)
-            boxadd, el = randremove(el, r)
-            boxes[b] = boxes[b] + boxadd
-    '''
+
     boxes = list(divide(el, 1, box_count))
 
     print len(boxes)
