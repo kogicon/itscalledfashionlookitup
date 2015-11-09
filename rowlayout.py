@@ -21,6 +21,8 @@ def gen_row_layout(panes):
         curr_size = 0
         piece_count = gen_piece_count()
 
+
+        shuffle(content)
         for piece in content:
             piece['weight'] = get_piece_weight(piece)
             
@@ -66,7 +68,14 @@ def row_to_html(row):
         return html
 
 def piece_to_html(piece):
-        html ='<div class="content-piece">\n'
+        classes = 'content-piece '
+        if piece['type'] == 'image':
+            classes += 'cont-image'
+        elif piece['type'] == 'text':    
+            classes += 'cont-text'
+            
+        html ='<div class="' + classes + '">\n'
+
         
         html += piece['data'] + "\n"
             
