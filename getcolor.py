@@ -7,9 +7,9 @@ pattern_list = {
     'complementary': {
         'colors':[[0, 0, 0], [180, 0, 0]]},
     'complementary /w black': {
-        'colors':[[0, 0, 0], ['STATIC', 0, 0, 10], [180, 0, 0]]},
+        'colors':[['STATIC', 0, 0, 10], [0, 0, 0], [180, 0, 0]]},
     'complementary /w white': {
-        'colors':[[0, 0, 0], ['STATIC', 0, 0, 99], [180, 0, 0]]},
+        'colors':[['STATIC', 0, 0, 99], [0, 0, 0], [180, 0, 0]]},
     'split complementary': {
         'colors':[[0, 0, 0], [150, 0, 0], [210, 0, 0]]},
     'analog': {

@@ -13,6 +13,33 @@ p {
 	font-size: 30px;
 	font-weight: 300;
 	font-family: 'Open Sans' 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	word-wrap: break-word;
+}
+
+#buttons {
+	z-index: 5;
+}
+
+#header-container {
+	position: absolute;
+	z-index: 0;
+	width:100%;
+	height:700px;
+}
+
+#header-back {
+	position: relative;
+	width:100%;
+	height:100%;
+}
+
+#header-back > img {
+	z-index: 0;
+}
+
+#header-spacer {
+	width: 100%;
+	height: 550px;
 }
 
 #root-div {
@@ -75,8 +102,12 @@ p {
 	
 }
 
+.cont-image, .content-piece {
+	z-index: 1;
+}
+
 .content-piece {
-	margin: 10px;
+	margin: 2px;
 	height: 375px;
 	width: 375px;
 }

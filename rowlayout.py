@@ -22,7 +22,7 @@ def gen_row_layout(panes):
         piece_count = gen_piece_count()
 
 
-        shuffle(content)
+        shuffle(content) 
         for piece in content:
             piece['weight'] = get_piece_weight(piece)
             
